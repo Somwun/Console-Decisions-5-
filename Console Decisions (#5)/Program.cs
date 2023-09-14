@@ -114,28 +114,33 @@ namespace Console_Decisions___5_
         static void Parking()
         {
             Console.Clear();
-            int baseFee = 4, hourlyFee = 2;
-            double timeParked;
+            int baseFee = 2, hourlyFee = 2;
+            double timeParked, cost = 0;
             bool repeat = true;
             Console.WriteLine("Welcome to parking lots inc. Where you can stay as long as you need\n How long will you be parking? In minutes please");
             Console.WriteLine("Also if you'd like to leave simply say Exit");
 
             while (repeat == true)
             {
-                if (Console.ReadLine().ToLower() == "exit")
+                string userInput = Console.ReadLine().ToLower();
+                if (userInput == "exit")
                 {
                     repeat = false;
                     continue;
                 }
-                if (double.TryParse(Console.ReadLine(), out timeParked) & timeParked >= 0)
+                else if (double.TryParse(userInput, out timeParked) & timeParked >= 0)
                 {
-                    Console.WriteLine($"Cool, that'll be {(Math.Ceiling(timeParked / 60) * hourlyFee + baseFee).ToString("C")}");
+                    cost = Math.Ceiling(timeParked / 60) * hourlyFee + baseFee;
+                    if (cost > 20)
+                        cost = 20;
+                    Console.WriteLine($"Cool, that'll be {cost.ToString("C")}");
                 }
                 else
                 {
-                    while (double.TryParse(Console.ReadLine(), out timeParked) == false || timeParked < 0)
+                    while (double.TryParse(userInput, out timeParked) == false || timeParked < 0)
                     {
                         Console.WriteLine("Look man I'm just trying to do my job, I don't need your riddles.\n So how long are you going to park here?");
+                        userInput = Console.ReadLine();
                     }
                 }
             }
@@ -148,29 +153,34 @@ namespace Console_Decisions___5_
             int hurricane;
             string windSpeedMPH, windSpeedKM, windSpeedKT;
             Console.WriteLine("Welcome to the Saffir Simpson Hurricane scale.\nPlease input your catagory of hurricane from 1-5 and we'll describe it for you.\nType Exit to quit");
-            int.TryParse(Console.ReadLine(), out hurricane);
-            switch (hurricane)
+            while (!int.TryParse(Console.ReadLine(), out hurricane))
             {
-                case 1:
-                    windSpeedMPH = "74 - 95"; windSpeedKM = 0; windSpeedKT = 0;
-                    Console.WriteLine("The speed of your hurricane is between " );
-                    break;
-                case 2:
-
-                    break;
-                case 3:
-
-                    break;
-                case 4:
-
-                    break;
-                case 5:
-
-                    break;
-                default:
-
-                    break;
-
+                switch (hurricane)
+                {
+                    case 1:
+                        Console.WriteLine("The speed of your hurricane is between 74-96 Mph, 119-153 Km, or 64-82 Kt");
+                        break;
+                    case 2:
+                        Console.WriteLine("The speed of your hurricane is between 96-110 Mph, 154-177 Km, or 83-95 Kt");
+                        break;
+                    case 3:
+                        Console.WriteLine("The speed of your hurricane is between 111-130 Mph, 178-209 Km, or 96-113 Kt");
+                        break;
+                    case 4:
+                        Console.WriteLine("The speed of your hurricane is between 131-155 Mph, 210-249 Km, or 114-135 Kt");
+                        break;
+                    case 5:
+                        Console.WriteLine("The speed of your hurricane is between 155+ Mph, 249+ Km, or 135+ Kt");
+                        break;
+                    case < 1:
+                        Console.WriteLine("Invalid Input. Please Make sure your number is between 1-5");
+                        int.TryParse(Console.ReadLine(), out hurricane);
+                        break;
+                    case > 5:
+                        Console.WriteLine("Invalid Input. Please Make sure your number is between 1-5");
+                        int.TryParse(Console.ReadLine(), out hurricane);
+                        break;
+                }
             }
         }
         static void Main(string[] args)
