@@ -24,7 +24,7 @@ namespace Console_Decisions___5_
                     if (action != "deposit" & action != "withdraw" & action != "pay bills" & action != "check balance" & action != "exit")
                     {
                         money = money - 0.75;
-                        Console.WriteLine($"Invalid input\n $-0.75\n New Balance {money}");
+                        Console.WriteLine($"Invalid input\n$-0.75\nNew Balance {money}");
                     }
                 }
 
@@ -45,13 +45,13 @@ namespace Console_Decisions___5_
                         else
                         {
                             money = money - 0.75;
-                            Console.WriteLine($"Invalid input\n $-0.75\n New Balance {money}");
+                            Console.WriteLine($"Invalid input\n$-0.75\nNew Balance {money}");
                         }
                     }
                     else
                     {
                         money = money - 0.75;
-                        Console.WriteLine($"Invalid input\n $-0.75\n New Balance {money}");
+                        Console.WriteLine($"Invalid input\n$-0.75\nNew Balance {money}");
                     }
                 }
 
@@ -72,13 +72,13 @@ namespace Console_Decisions___5_
                         else
                         {
                             money = money - 0.75;
-                            Console.WriteLine($"Invalid input\n $-0.75\n New Balance {money}");
+                            Console.WriteLine($"Invalid input\n$-0.75\nNew Balance {money}");
                         }
                     }
                     else
                     {
                         money = money - 0.75;
-                        Console.WriteLine($"Invalid input\n $-0.75\n New Balance {money}");
+                        Console.WriteLine($"Invalid input\n$-0.75\nNew Balance {money}");
                     }
                 }
 
@@ -92,10 +92,10 @@ namespace Console_Decisions___5_
                 //Bills
                 else if (action == "pay bills")
                 {
-                    Console.WriteLine($"Current bills\n Heating:{heating.ToString("C")}\n Water:{water.ToString("C")}\n Overdue HotdogEnjoyersUnited fees:{hotdog.ToString("C")}");
+                    Console.WriteLine($"Current bills\n Heating:{heating.ToString("C")}\n Water:{water.ToString("C")}\nOverdue HotdogEnjoyersUnited fees:{hotdog.ToString("C")}");
                     if (money >= heating + water + hotdog + 0.75)
                     {
-                        Console.WriteLine("Bills subtrated\n Thank for choosing Bob for your banking services");
+                        Console.WriteLine("Bills subtrated\nThank for choosing Bob for your banking services");
                         heating = 0;
                         water = 0;
                         hotdog = 0;
@@ -117,7 +117,7 @@ namespace Console_Decisions___5_
             int baseFee = 2, hourlyFee = 2;
             double timeParked, cost = 0;
             bool repeat = true;
-            Console.WriteLine("Welcome to parking lots inc. Where you can stay as long as you need\n How long will you be parking? In minutes please");
+            Console.WriteLine("Welcome to parking lots inc. Where you can stay as long as you need\nHow long will you be parking? In minutes please");
             Console.WriteLine("Also if you'd like to leave simply say Exit");
 
             while (repeat == true)
@@ -139,7 +139,7 @@ namespace Console_Decisions___5_
                 {
                     while (double.TryParse(userInput, out timeParked) == false || timeParked < 0)
                     {
-                        Console.WriteLine("Look man I'm just trying to do my job, I don't need your riddles.\n So how long are you going to park here?");
+                        Console.WriteLine("Look man I'm just trying to do my job, I don't need your riddles.\nSo how long are you going to park here?");
                         userInput = Console.ReadLine();
                     }
                 }
